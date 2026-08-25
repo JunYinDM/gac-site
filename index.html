@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galactic Automata Capital</title>
+<meta name="description" content="Galactic Automata Capital — systematic trading in digital assets. Research-driven, risk-first, fully automated.">
+<style>
+  :root{
+    --bg:#0b0e14;
+    --bg2:#10141f;
+    --ink:#e8eaf0;
+    --muted:#9aa3b5;
+    --line:rgba(154,163,181,.18);
+    --accent:#7fb4ff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  .stars{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      radial-gradient(1px 1px at 12% 22%, rgba(232,234,240,.55) 50%, transparent 51%),
+      radial-gradient(1px 1px at 78% 12%, rgba(232,234,240,.4) 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 55% 38%, rgba(232,234,240,.35) 50%, transparent 51%),
+      radial-gradient(1px 1px at 30% 68%, rgba(232,234,240,.45) 50%, transparent 51%),
+      radial-gradient(1px 1px at 88% 55%, rgba(232,234,240,.35) 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 42% 88%, rgba(232,234,240,.3) 50%, transparent 51%),
+      radial-gradient(1px 1px at 65% 75%, rgba(232,234,240,.4) 50%, transparent 51%),
+      radial-gradient(1px 1px at 8% 85%, rgba(232,234,240,.3) 50%, transparent 51%),
+      radial-gradient(1px 1px at 95% 90%, rgba(232,234,240,.35) 50%, transparent 51%),
+      radial-gradient(1px 1px at 50% 8%, rgba(232,234,240,.4) 50%, transparent 51%);
+  }
+  main{
+    position:relative;z-index:1;
+    flex:1;
+    width:100%;
+    max-width:860px;
+    margin:0 auto;
+    padding:0 24px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .hero{padding:18vh 0 8vh}
+  .wordmark{
+    font-size:13px;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:28px;
+  }
+  h1{
+    font-size:clamp(34px,6vw,58px);
+    font-weight:600;
+    letter-spacing:-.015em;
+    line-height:1.12;
+    margin-bottom:22px;
+  }
+  .sub{
+    font-size:clamp(16px,2.2vw,19px);
+    color:var(--muted);
+    max-width:560px;
+  }
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    margin:9vh 0 0;
+  }
+  .pillar{
+    background:var(--bg2);
+    padding:26px 24px;
+  }
+  .pillar h2{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin-bottom:10px;
+  }
+  .pillar p{
+    font-size:14px;
+    color:var(--muted);
+  }
+  .contact{
+    margin:9vh 0 12vh;
+    padding-top:36px;
+    border-top:1px solid var(--line);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:12px 32px;
+  }
+  .contact .label{
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .contact a{
+    color:var(--ink);
+    text-decoration:none;
+    font-size:17px;
+    border-bottom:1px solid var(--accent);
+    padding-bottom:1px;
+  }
+  .contact a:hover{color:var(--accent)}
+  footer{
+    position:relative;z-index:1;
+    border-top:1px solid var(--line);
+    padding:26px 24px;
+  }
+  .foot{
+    max-width:860px;
+    margin:0 auto;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .foot p+p{margin-top:8px}
+  @media (max-width:640px){
+    .hero{padding:12vh 0 6vh}
+    .pillars{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+<main>
+  <section class="hero">
+    <div class="wordmark">Galactic Automata Capital</div>
+    <h1>Systematic trading in digital&nbsp;assets.</h1>
+    <p class="sub">A quantitative trading firm running fully automated strategies in cryptocurrency markets — built on adversarial backtesting, live-fidelity measurement, and disciplined risk control.</p>
+  </section>
+
+  <section class="pillars">
+    <div class="pillar">
+      <h2>Research</h2>
+      <p>Walk-forward validation with held-out data, and the discipline to kill strategies that fail it.</p>
+    </div>
+    <div class="pillar">
+      <h2>Execution</h2>
+      <p>Fully automated, low-latency infrastructure with continuous live-versus-model monitoring.</p>
+    </div>
+    <div class="pillar">
+      <h2>Risk</h2>
+      <p>Hard position limits, automated drawdown kill-switches, and independent fleet-wide watchdogs.</p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <span class="label">Contact</span>
+    <a href="mailto:info@galacticautomatacapital.com">info@galacticautomatacapital.com</a>
+  </section>
+</main>
+<footer>
+  <div class="foot">
+    <p>© 2026 Galactic Automata Capital. All rights reserved.</p>
+    <p>This website is for informational purposes only and does not constitute an offer to sell, or a solicitation of an offer to buy, any security or investment product, nor does it constitute investment advice.</p>
+  </div>
+</footer>
+</body>
+</html>
