@@ -1,177 +1,588 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Galactic Automata Capital</title>
-<meta name="description" content="Galactic Automata Capital — systematic trading in digital assets. Research-driven, risk-first, fully automated.">
-<style>
-  :root{
-    --bg:#0b0e14;
-    --bg2:#10141f;
-    --ink:#e8eaf0;
-    --muted:#9aa3b5;
-    --line:rgba(154,163,181,.18);
-    --accent:#7fb4ff;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;
-    line-height:1.6;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-  }
-  .stars{
-    position:fixed;inset:0;z-index:0;pointer-events:none;
-    background-image:
-      radial-gradient(1px 1px at 12% 22%, rgba(232,234,240,.55) 50%, transparent 51%),
-      radial-gradient(1px 1px at 78% 12%, rgba(232,234,240,.4) 50%, transparent 51%),
-      radial-gradient(1.5px 1.5px at 55% 38%, rgba(232,234,240,.35) 50%, transparent 51%),
-      radial-gradient(1px 1px at 30% 68%, rgba(232,234,240,.45) 50%, transparent 51%),
-      radial-gradient(1px 1px at 88% 55%, rgba(232,234,240,.35) 50%, transparent 51%),
-      radial-gradient(1.5px 1.5px at 42% 88%, rgba(232,234,240,.3) 50%, transparent 51%),
-      radial-gradient(1px 1px at 65% 75%, rgba(232,234,240,.4) 50%, transparent 51%),
-      radial-gradient(1px 1px at 8% 85%, rgba(232,234,240,.3) 50%, transparent 51%),
-      radial-gradient(1px 1px at 95% 90%, rgba(232,234,240,.35) 50%, transparent 51%),
-      radial-gradient(1px 1px at 50% 8%, rgba(232,234,240,.4) 50%, transparent 51%);
-  }
-  main{
-    position:relative;z-index:1;
-    flex:1;
-    width:100%;
-    max-width:860px;
-    margin:0 auto;
-    padding:0 24px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-  }
-  .hero{padding:18vh 0 8vh}
-  .wordmark{
-    font-size:13px;
-    letter-spacing:.42em;
-    text-transform:uppercase;
-    color:var(--accent);
-    margin-bottom:28px;
-  }
-  h1{
-    font-size:clamp(34px,6vw,58px);
-    font-weight:600;
-    letter-spacing:-.015em;
-    line-height:1.12;
-    margin-bottom:22px;
-  }
-  .sub{
-    font-size:clamp(16px,2.2vw,19px);
-    color:var(--muted);
-    max-width:560px;
-  }
-  .pillars{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-    border-radius:10px;
-    overflow:hidden;
-    margin:9vh 0 0;
-  }
-  .pillar{
-    background:var(--bg2);
-    padding:26px 24px;
-  }
-  .pillar h2{
-    font-size:13px;
-    font-weight:600;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--ink);
-    margin-bottom:10px;
-  }
-  .pillar p{
-    font-size:14px;
-    color:var(--muted);
-  }
-  .contact{
-    margin:9vh 0 12vh;
-    padding-top:36px;
-    border-top:1px solid var(--line);
-    display:flex;
-    flex-wrap:wrap;
-    align-items:baseline;
-    gap:12px 32px;
-  }
-  .contact .label{
-    font-size:12px;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-  .contact a{
-    color:var(--ink);
-    text-decoration:none;
-    font-size:17px;
-    border-bottom:1px solid var(--accent);
-    padding-bottom:1px;
-  }
-  .contact a:hover{color:var(--accent)}
-  footer{
-    position:relative;z-index:1;
-    border-top:1px solid var(--line);
-    padding:26px 24px;
-  }
-  .foot{
-    max-width:860px;
-    margin:0 auto;
-    font-size:12px;
-    color:var(--muted);
-  }
-  .foot p+p{margin-top:8px}
-  @media (max-width:640px){
-    .hero{padding:12vh 0 6vh}
-    .pillars{grid-template-columns:1fr}
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galactic Automata Capital &mdash; Quantitative Crypto Hedge Fund</title>
+    <meta name="description" content="Galactic Automata Capital is a quantitative crypto hedge fund building systematic trading strategies across digital asset markets.">
+    <style>
+        :root {
+            --bg: #08080c;
+            --bg-alt: #0e0e14;
+            --card: #12121a;
+            --card-hover: #16161f;
+            --border: #2a2a38;
+            --border-strong: #3a3a4c;
+            --text: #f5f5f9;
+            --text-body: #dcdce4;
+            --text-muted: #b8b8c4;
+            --text-dim: #8f8f9a;
+            --gold: #c9a961;
+            --gold-bright: #d9bd7a;
+            --gold-dim: #6d5b34;
+            --accent-glow: rgba(201, 169, 97, 0.12);
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        a { color: var(--gold); text-decoration: none; transition: color 0.15s ease; }
+        a:hover { color: var(--gold-bright); }
+
+        /* Background grid pattern */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 10%, rgba(201, 169, 97, 0.06), transparent 40%),
+                radial-gradient(circle at 80% 90%, rgba(201, 169, 97, 0.04), transparent 45%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* NAV */
+        nav.topnav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(8, 8, 12, 0.85);
+            backdrop-filter: saturate(1.4) blur(12px);
+            -webkit-backdrop-filter: saturate(1.4) blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 18px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--text);
+        }
+        .brand-mark {
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+        .nav-links a {
+            color: var(--text-body);
+            font-size: 14.5px;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* HERO */
+        header.hero {
+            position: relative;
+            padding: 120px 32px 100px;
+            text-align: center;
+            z-index: 1;
+        }
+        .hero-inner { max-width: 880px; margin: 0 auto; }
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border: 1px solid var(--border-strong);
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: var(--accent-glow);
+            margin-bottom: 28px;
+        }
+        .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 8px var(--gold);
+        }
+        h1.hero-title {
+            margin: 0 0 24px;
+            font-size: clamp(38px, 6vw, 68px);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            font-weight: 600;
+            color: var(--text);
+        }
+        h1.hero-title .accent {
+            background: linear-gradient(135deg, var(--gold-bright), var(--gold) 60%, var(--gold-dim));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        p.hero-sub {
+            max-width: 640px;
+            margin: 0 auto 40px;
+            font-size: 19px;
+            color: var(--text-body);
+            line-height: 1.65;
+        }
+        .cta-row {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.15s ease;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: #1a1408;
+            border-color: var(--gold);
+        }
+        .btn-primary:hover {
+            background: var(--gold-bright);
+            border-color: var(--gold-bright);
+            color: #1a1408;
+            transform: translateY(-1px);
+        }
+        .btn-ghost {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border-strong);
+        }
+        .btn-ghost:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* SECTIONS */
+        main { position: relative; z-index: 1; }
+        section.block {
+            padding: 90px 32px;
+            border-top: 1px solid var(--border);
+        }
+        .container { max-width: 1180px; margin: 0 auto; }
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+        h2.section-title {
+            margin: 0 0 24px;
+            font-size: clamp(28px, 3.6vw, 40px);
+            letter-spacing: -0.015em;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.15;
+        }
+        .lede {
+            max-width: 720px;
+            font-size: 18px;
+            color: var(--text-body);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .stat {
+            padding: 22px 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--card);
+        }
+        .stat-label {
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+        .stat-value {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        .stat-value .unit {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* SERVICES */
+        section.services { background: var(--bg-alt); }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 48px;
+        }
+        .card {
+            padding: 32px 28px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--card);
+            transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+        }
+        .card:hover {
+            border-color: var(--border-strong);
+            background: var(--card-hover);
+            transform: translateY(-2px);
+        }
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.005em;
+        }
+        .card p {
+            margin: 0;
+            font-size: 15.5px;
+            color: var(--text-body);
+            line-height: 1.65;
+        }
+
+        /* APPROACH */
+        .approach-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 34px 60px;
+            margin-top: 48px;
+        }
+        .approach-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .approach-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--gold-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "SF Mono", Menlo, Consolas, monospace;
+            font-size: 12px;
+            color: var(--gold);
+        }
+        .approach-item h4 {
+            margin: 4px 0 6px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .approach-item p {
+            margin: 0;
+            color: var(--text-body);
+            font-size: 15.5px;
+            line-height: 1.65;
+        }
+
+        /* CONTACT */
+        section.contact { background: var(--bg-alt); }
+        .contact-card {
+            max-width: 620px;
+            margin: 48px auto 0;
+            padding: 44px 40px;
+            border: 1px solid var(--border-strong);
+            border-radius: 16px;
+            background: linear-gradient(180deg, var(--card), var(--bg));
+            text-align: center;
+        }
+        .contact-card p {
+            color: var(--text-body);
+            margin: 0 0 24px;
+            font-size: 17px;
+        }
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "SF Mono", Menlo, Consolas, monospace;
+            font-size: 17px;
+            padding: 12px 22px;
+            border: 1px solid var(--gold-dim);
+            border-radius: 10px;
+            background: var(--accent-glow);
+            color: var(--gold-bright);
+        }
+        .contact-email:hover {
+            border-color: var(--gold);
+            color: var(--gold-bright);
+        }
+
+        /* FOOTER */
+        footer.site-footer {
+            padding: 40px 32px 48px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 13px;
+        }
+        .footer-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-brand { color: var(--text-muted); }
+
+        /* RESPONSIVE */
+        @media (max-width: 860px) {
+            .nav-inner { padding: 16px 22px; }
+            .nav-links { gap: 20px; }
+            header.hero { padding: 80px 22px 70px; }
+            section.block { padding: 70px 22px; }
+            .about-grid { grid-template-columns: 1fr; gap: 32px; }
+            .card-grid { grid-template-columns: 1fr; }
+            .approach-list { grid-template-columns: 1fr; gap: 28px; }
+            .contact-card { padding: 32px 24px; }
+            footer.site-footer { padding: 32px 22px; }
+        }
+        @media (max-width: 520px) {
+            .nav-links { display: none; }
+            .stat-grid { grid-template-columns: 1fr; }
+            .contact-email { font-size: 14px; padding: 10px 16px; }
+        }
+    </style>
 </head>
 <body>
-<div class="stars" aria-hidden="true"></div>
+
+<nav class="topnav">
+    <div class="nav-inner">
+        <div class="brand">
+            <span class="brand-mark" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                    <circle cx="13" cy="13" r="11.5" stroke="#c9a961" stroke-width="1.2"/>
+                    <ellipse cx="13" cy="13" rx="11.5" ry="4.2" stroke="#c9a961" stroke-width="1" opacity="0.55" transform="rotate(-25 13 13)"/>
+                    <circle cx="13" cy="13" r="2.4" fill="#c9a961"/>
+                </svg>
+            </span>
+            <span>Galactic Automata Capital</span>
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#approach">Approach</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-inner">
+        <span class="pill"><span class="pill-dot"></span>Quantitative Crypto Hedge Fund</span>
+        <h1 class="hero-title">
+            Systematic <span class="accent">edge</span> in digital&nbsp;asset markets
+        </h1>
+        <p class="hero-sub">
+            Galactic Automata Capital builds automated, research-driven trading strategies across major cryptocurrencies&mdash;engineered to deliver uncorrelated returns through disciplined risk management and continuous execution.
+        </p>
+        <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">
+                Get in touch
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#approach">Our approach</a>
+        </div>
+    </div>
+</header>
+
 <main>
-  <section class="hero">
-    <div class="wordmark">Galactic Automata Capital</div>
-    <h1>Systematic trading in digital&nbsp;assets.</h1>
-    <p class="sub">A quantitative trading firm running fully automated strategies in cryptocurrency markets — built on adversarial backtesting, live-fidelity measurement, and disciplined risk control.</p>
-  </section>
 
-  <section class="pillars">
-    <div class="pillar">
-      <h2>Research</h2>
-      <p>Walk-forward validation with held-out data, and the discipline to kill strategies that fail it.</p>
-    </div>
-    <div class="pillar">
-      <h2>Execution</h2>
-      <p>Fully automated, low-latency infrastructure with continuous live-versus-model monitoring.</p>
-    </div>
-    <div class="pillar">
-      <h2>Risk</h2>
-      <p>Hard position limits, automated drawdown kill-switches, and independent fleet-wide watchdogs.</p>
-    </div>
-  </section>
+    <section class="block about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <div class="eyebrow">About Us</div>
+                    <h2 class="section-title">Where quantitative research meets 24/7 markets.</h2>
+                </div>
+                <div>
+                    <p class="lede">
+                        We are a systematic investment firm focused exclusively on digital assets. Our team combines expertise in market microstructure, machine learning, and low-latency engineering to research, develop, and deploy trading strategies that operate continuously across global crypto venues.
+                    </p>
+                    <div class="stat-grid">
+                        <div class="stat">
+                            <div class="stat-label">Coverage</div>
+                            <div class="stat-value">24<span class="unit">/</span>7</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">Approach</div>
+                            <div class="stat-value">100<span class="unit">%</span> Systematic</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">Venues</div>
+                            <div class="stat-value">Multi-Exchange</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">Focus</div>
+                            <div class="stat-value">Uncorrelated Alpha</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="contact">
-    <span class="label">Contact</span>
-    <a href="mailto:info@galacticautomatacapital.com">info@galacticautomatacapital.com</a>
-  </section>
+    <section class="block services" id="services">
+        <div class="container">
+            <div class="eyebrow">What We Do</div>
+            <h2 class="section-title">A focused platform for systematic digital-asset investing.</h2>
+            <p class="lede">
+                We pair rigorous quantitative research with fully-automated execution to capture opportunities across a fragmented, always-on market.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 15l4-6 3 4 3-6 4 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Systematic Strategies</h3>
+                    <p>Portfolios of quantitative trading models spanning trend, mean-reversion, and market-microstructure signals across liquid crypto pairs.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M10 3v14M3 10h14" stroke="currentColor" stroke-width="1.6"/></svg>
+                    </div>
+                    <h3>Quantitative Research</h3>
+                    <p>Dedicated research on market structure, order-flow dynamics, and machine-learning signal discovery&mdash;continuously validated against out-of-sample data.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l7 4v5c0 4-3 6-7 7-4-1-7-3-7-7V6l7-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Risk Management</h3>
+                    <p>Position sizing, drawdown controls, and venue-level risk monitoring designed for the volatility profile of digital-asset markets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block approach" id="approach">
+        <div class="container">
+            <div class="eyebrow">Our Approach</div>
+            <h2 class="section-title">Automated by design. Disciplined by principle.</h2>
+            <div class="approach-list">
+                <div class="approach-item">
+                    <div class="approach-num">01</div>
+                    <div>
+                        <h4>Evidence over intuition</h4>
+                        <p>Every strategy earns capital through rigorous statistical testing across regimes&mdash;never through narrative or discretion.</p>
+                    </div>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-num">02</div>
+                    <div>
+                        <h4>Continuous execution</h4>
+                        <p>Fully automated infrastructure runs models across venues around the clock, with zero-touch trading and real-time monitoring.</p>
+                    </div>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-num">03</div>
+                    <div>
+                        <h4>Capacity-aware sizing</h4>
+                        <p>We measure market impact and liquidity constraints ex-ante&mdash;alpha is only real at scale that respects the market.</p>
+                    </div>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-num">04</div>
+                    <div>
+                        <h4>Aligned incentives</h4>
+                        <p>Principal capital sits alongside investor capital in every strategy we run. We eat our own cooking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block contact" id="contact">
+        <div class="container">
+            <div class="eyebrow" style="text-align:center;">Contact</div>
+            <h2 class="section-title" style="text-align:center;">Interested in learning more?</h2>
+            <div class="contact-card">
+                <p>For allocator inquiries, partnership discussions, or general questions&mdash;we&rsquo;d love to hear from you.</p>
+                <a class="contact-email" href="mailto:info@galacticautomatacapital.com">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 4l5.5 4.5L13.5 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    info@galacticautomatacapital.com
+                </a>
+            </div>
+        </div>
+    </section>
+
 </main>
-<footer>
-  <div class="foot">
-    <p>© 2026 Galactic Automata Capital. All rights reserved.</p>
-    <p>This website is for informational purposes only and does not constitute an offer to sell, or a solicitation of an offer to buy, any security or investment product, nor does it constitute investment advice.</p>
-  </div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">&copy; 2026 Galactic Automata Capital. All rights reserved.</div>
+        <div>Not an offer to sell securities. For informational purposes only.</div>
+    </div>
 </footer>
+
 </body>
 </html>
